@@ -48,7 +48,7 @@ if s:color_coded_valid == 1
     au VimEnter,ColorScheme * source $VIMHOME/after/syntax/color_coded.vim
     au BufEnter * call color_coded#enter()
     au WinEnter * call color_coded#enter()
-    au TextChanged,InsertLeave * call color_coded#push()
+    au TextChanged,InsertEnter,InsertLeave * call color_coded#push()
     au CursorMoved,CursorMovedI * call color_coded#moved()
     au CursorHold,CursorHoldI * call color_coded#moved()
     " Resized events trigger midway through a vim state change; the buffer
