@@ -27,13 +27,13 @@ if(NOT CUSTOM_CLANG)
     endif()
   endif()
 
-  file(DOWNLOAD
-    "${CLANG_URL}/${CLANG_FILENAME}" "./${CLANG_FILENAME}"
-    SHOW_PROGRESS EXPECTED_HASH SHA256=${CLANG_SHA256})
-
-  message(STATUS "Found ${CLANG_FILENAME}")
-
   if(NOT EXISTS ${CLANG_DIRNAME})
+    file(DOWNLOAD
+      "${CLANG_URL}/${CLANG_FILENAME}" "./${CLANG_FILENAME}"
+      SHOW_PROGRESS EXPECTED_HASH SHA256=${CLANG_SHA256})
+
+    message(STATUS "Found ${CLANG_FILENAME}")
+
     message(STATUS "Extracting Clang/LLVM ${CLANG_VERSION}")
 
     execute_process(COMMAND mkdir -p ${CLANG_DIRNAME})
